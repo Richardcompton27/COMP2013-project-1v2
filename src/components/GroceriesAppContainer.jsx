@@ -26,22 +26,31 @@ export default function GroceriesAppContainer({ data }) {
   // Remove quantity ternerary
   const handleRemoveQuantity = (productID) => {
     const newProductQuantity = productQuantity.map((prod) =>
-      prod.id === productID && prod.quantity > 0
-        ? { ...prod, quantity: prod.quantity - 1 }
-        : prod
+      prod.id === productID && prod.quantity > 0 
+    ? { ...prod, quantity: prod.quantity - 1 } : prod
     );
     setProductQuantity(newProductQuantity);
   };
+
+
+  // Add to cart quantity
+  const handleCartAddToQuantity = (productID) => {
+    const newCartItems = cartItems.map((item) =>
+      item.id === productID ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(newCartItems);
+  };
   
-  // Remove cart quantity ternerary
+  // Remove from cart quantity ternerary
   const handleCartRemoveQuantity = (productID) => {
-    const newCartItems = cartItems.map((prod) =>
-      item.id === productID && prod.quantity > 0
-        ? { ...prod, quantity: item.quantity - 1 }
+    const newCartItems = cartItems.map((item) =>
+      item.id === productID && item.quantity > 0
+        ? { ...item, quantity: item.quantity - 1 }
         : item
     );
-    setProductItems(newCartItems);
+    setCartItems(newCartItems);
   };
+
 
 const handleAddToCart = (productID) => {
 console.log("Adding to cart:", productID);
@@ -112,7 +121,7 @@ console.log("Adding to cart:", productID);
         cartItems={cartItems}
         handleEmptyCart={handleEmptyCart}
         handleBuy={handleBuy}
-        handleAddToQuantity={handleAddToQuantity}
+        handleCartAddToQuantity={handleCartAddToQuantity}
         handleCartRemoveQuantity={handleCartRemoveQuantity}
         handleRemoveItem={handleRemoveItem}
           

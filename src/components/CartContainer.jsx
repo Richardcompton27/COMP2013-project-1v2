@@ -2,8 +2,8 @@ import CartCard from "./cartCard";
 
 export default function CartContainer({
   cartItems,
-  handleAddToQuantity,
-  handleRemoveQuantity,
+  handleCartAddToQuantity,
+  handleCartRemoveQuantity,
   handleRemoveItem,
   handleEmptyCart,
   handleBuy,
@@ -29,8 +29,8 @@ export default function CartContainer({
               image={product.image}
               price={product.price}
               quantity={product.quantity}
-              handleAddToQuantity={handleAddToQuantity}
-              handleRemoveQuantity={handleRemoveQuantity}
+              handleCartAddToQuantity={handleCartAddToQuantity}
+              handleCartRemoveQuantity={handleCartRemoveQuantity}
               handleRemoveItem={handleRemoveItem}
             />
           ))}

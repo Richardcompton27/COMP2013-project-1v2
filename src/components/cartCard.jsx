@@ -6,8 +6,8 @@ export default function CartCard({
   price,
   quantity,
   id,
-  handleAddToQuantity,
-  handleRemoveQuantity,
+  handleCartAddToQuantity,
+  handleCartRemoveQuantity,
   handleRemoveItem,
 }) {
   return (
@@ -17,8 +17,8 @@ export default function CartCard({
 
       <QuantityCounter
         quantity={quantity}
-        onAdd={() => handleAddToQuantity(id)}
-        onRemove={() => handleRemoveQuantity(id)}
+        onAdd={() => handleCartAddToQuantity(id)}
+        onRemove={() => handleCartRemoveQuantity(id)}
       />
 
       <p>${price.toFixed(2)}</p>
