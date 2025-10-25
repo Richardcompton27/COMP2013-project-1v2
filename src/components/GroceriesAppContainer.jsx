@@ -4,6 +4,7 @@ import NavBar from "./navBar";
 import CartContainer from "./CartContainer";
 
 export default function GroceriesAppContainer({ data }) {
+    //controls the products and has the object for all its items
   const [productQuantity, setProductQuantity] = useState(
     data.map((product) => ({
       id: product.id,
@@ -12,7 +13,7 @@ export default function GroceriesAppContainer({ data }) {
       price: parseFloat(product.price.replace("$", "")),
     }))
   );
-
+//controls the cart and has the object for all of its items
   const [cartItems, setCartItems] = useState([]);
 
   // Add quantity
