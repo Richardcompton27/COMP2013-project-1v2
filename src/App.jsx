@@ -1,7 +1,13 @@
-import "./App.css";
 
+import "./App.css";
+import products from "./data/products";
+import GroceriesAppContainer from "./components/GroceriesAppContainer";
 function App() {
-  return <>{/* Add your code here! */}</>;
+  return (
+    <>
+      <GroceriesAppContainer data={products} />
+    </>
+  );
 }
 
 export default App;
