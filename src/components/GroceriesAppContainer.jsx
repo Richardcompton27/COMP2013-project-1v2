@@ -33,6 +33,16 @@ export default function GroceriesAppContainer({ data }) {
     setProductQuantity(newProductQuantity);
   };
   
+  // Remove cart quantity ternerary
+  const handleCartRemoveQuantity = (productID) => {
+    const newCartItems = cartItems.map((prod) =>
+      item.id === productID && prod.quantity > 0
+        ? { ...prod, quantity: item.quantity - 1 }
+        : item
+    );
+    setProductItems(newCartItems);
+  };
+
 const handleAddToCart = (productID) => {
 console.log("Adding to cart:", productID);
   const productData = data.find((p) => p.id === productID);
@@ -102,6 +112,8 @@ console.log("Adding to cart:", productID);
         cartItems={cartItems}
         handleEmptyCart={handleEmptyCart}
         handleBuy={handleBuy}
+        handleAddToQuantity={handleAddToQuantity}
+        handleCartRemoveQuantity={handleCartRemoveQuantity}
         handleRemoveItem={handleRemoveItem}
           
         />
